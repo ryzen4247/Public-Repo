@@ -1,6 +1,6 @@
 import mysql.connector
 import os
-from dotenv import load_dotenvdotexample
+from dotenvdotexample import load_dotenvdotexample
 
 load_dotenv()
 
