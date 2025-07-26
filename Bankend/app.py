@@ -1,4 +1,4 @@
-from database import get_connection
+vfrom database import get_connection
 
 def fetch_messages():
     conn = get_connection()
@@ -54,3 +54,14 @@ def get_messages():
 # ✅ Run the Flask app
 if __name__ == "__main__":
     app.run(debug=True)
+@app.route("/products", methods=["GET"])
+def get_products():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    query = "SELECT * FROM products"
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    conn.close()
+    return jsonify(rows)
+
